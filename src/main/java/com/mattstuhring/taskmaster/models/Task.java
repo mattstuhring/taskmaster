@@ -6,6 +6,9 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @DynamoDBTable(tableName = "tasks")
 public class Task {
@@ -14,6 +17,8 @@ public class Task {
     private String title;
     private String description;
     private String status;
+    private String assignee;
+    private List<History> history = new ArrayList<>();
 
     public Task() {}
 
@@ -49,5 +54,14 @@ public class Task {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @DynamoDBAttribute
+    public String getAssignee() { return this.assignee; }
+    public void setAssignee(String assignee) { this.assignee = assignee; }
+
+    @DynamoDBAttribute
+    public List<History> getHistory() { return history; }
+    public void setHistory(List<History> history) { this.history = history; }
+    public void addHistory(History history) { this.history.add(history); }
 
 }

@@ -20,3 +20,10 @@ The reason we're starting small on this server is because the main focus for the
 ## Deployed Site
 - [Taskmaster](http://taskmaster-dev-1.us-west-2.elasticbeanstalk.com/api/v1/tasks)
 
+## Resources
+- Nic Paro
+- Melfi Perez
+- Brandon Hurrington
+- Chris Coulon
+- Travis Cox
+
