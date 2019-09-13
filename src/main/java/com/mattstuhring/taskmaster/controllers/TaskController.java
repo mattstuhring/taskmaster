@@ -35,6 +35,12 @@ public class TaskController {
         return (List) taskmasterRepository.findByAssignee(name);
     }
 
+    @GetMapping("/tasks/{id}")
+    public Task getTask(@PathVariable String id) {
+        Task task = taskmasterRepository.findById(id).get();
+        return task;
+    }
+
     @PostMapping("/tasks")
     public Task addNewTask (@RequestBody Task task) {
         Task newTask = new Task();
