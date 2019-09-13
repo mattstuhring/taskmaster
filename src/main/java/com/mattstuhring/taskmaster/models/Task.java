@@ -18,6 +18,7 @@ public class Task {
     private String description;
     private String status;
     private String assignee;
+    private String image;
     private List<History> history = new ArrayList<>();
 
     public Task() {}
@@ -58,6 +59,10 @@ public class Task {
     @DynamoDBAttribute
     public String getAssignee() { return this.assignee; }
     public void setAssignee(String assignee) { this.assignee = assignee; }
+
+    @DynamoDBAttribute
+    public String getImage() { return this.image; }
+    public void setImage(String image) { this.image = image; }
 
     @DynamoDBAttribute
     public List<History> getHistory() { return history; }

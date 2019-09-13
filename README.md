@@ -21,7 +21,7 @@ The reason we're starting small on this server is because the main focus for the
 - [Taskmaster](http://taskmaster-dev-1.us-west-2.elasticbeanstalk.com/api/v1/tasks)
 
 ## Resources
-- Nic Paro
+- Nic Paro (Super helpful!!!)
 - Melfi Perez
 - Brandon Hurrington
 - Chris Coulon

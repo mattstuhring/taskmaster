@@ -1,10 +1,12 @@
 package com.mattstuhring.taskmaster.controllers;
 
+import com.mattstuhring.taskmaster.repository.S3Client;
 import com.mattstuhring.taskmaster.models.History;
 import com.mattstuhring.taskmaster.models.Task;
 import com.mattstuhring.taskmaster.repository.TaskmasterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -12,6 +14,14 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/api/v1")
 public class TaskController {
+
+    private S3Client s3Client;
+
+    @Autowired
+    TaskController(S3Client s3Client) {
+        this.s3Client = s3Client;
+    }
+
     @Autowired
     TaskmasterRepository taskmasterRepository;
 
@@ -43,6 +53,17 @@ public class TaskController {
         newTask.addHistory(newHistory);
 
         taskmasterRepository.save(newTask);
+        return newTask;
+    }
+
+    @PostMapping("/tasks/{id}/images")
+    public Task uploadFile(@PathVariable String id, @RequestPart(value = "file") MultipartFile file){
+        Task newTask = taskmasterRepository.findById(id).get();
+        String image = this.s3Client.uploadFile(file);
+
+        newTask.setImage(image);
+        taskmasterRepository.save(newTask);
+
         return newTask;
     }
 

@@ -25,8 +25,8 @@ public class DynamoDBConfig {
     @Value("${amazon.aws.secretkey}")
     private String amazonAWSSecretKey;
 
-//    @Value("${amazon.aws.bucket}")
-//    private String bucket;
+    @Value("${amazon.aws.bucket}")
+    private String bucket;
 
     @Bean
     public AmazonDynamoDB amazonDynamoDB(){
