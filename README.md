@@ -18,7 +18,7 @@ The reason we're starting small on this server is because the main focus for the
 - You should also use DynamoDB for your local application testing; in other words, you should connect to your production database, even in your development environment. (This is generally a bad practice, and we'll see how to work differently soon.)
 
 ## Deployed Site
-- [Taskmaster](http://taskmaster-dev-1.us-west-2.elasticbeanstalk.com/api/v1/tasks)
+- [Taskmaster](http://taskmaster-dev.us-west-2.elasticbeanstalk.com/api/v1/tasks)
 
 ## Resources
 - Nic Paro (Super helpful!!!)
